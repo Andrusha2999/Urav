@@ -63,6 +63,7 @@ def graafik():
 
 
 
+
 aken=Tk()
 aken.title("Решение Уравнения")
 aken.geometry("750x280")
@@ -76,8 +77,9 @@ c=Entry(aken,font="Arial 25",bg="lightblue",    fg="green",width=5)
 piip=Label(aken,text="=0",   font="Arial 25",    fg="green")
 knopka=Button(aken,text="РЕШИТЬ",font="Arial 25",  bg="pink",command=lahenda)
 grafik_=Button(aken,text="График", font="Arial 25",bg="green",command=graafik)
-
-
+radio=Radiobutton(aken,text="кит",font="Arial 25", fg="blue",bg="lightpink") 
+radio2=Radiobutton(aken,text="зонтик",font="Arial 25", fg="blue",bg="lightpink") 
+radio3=Radiobutton(aken,text="лягушка",font="Arial 25", fg="blue",bg="lightpink") 
 
 
 
@@ -91,8 +93,8 @@ c.pack(side=LEFT)
 piip.pack(side=LEFT)
 knopka.pack(side=RIGHT)
 grafik_.pack(side=LEFT)
-
-
-
+radio.pack()
+radio2.pack()
+radio3.pack()
 
 aken.mainloop()
