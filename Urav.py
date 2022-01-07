@@ -1,64 +1,65 @@
 from tkinter import*
+import numpy as np
+global a,b,c
 def lahenda():
-    global primer,bukva,c
-    if (primer.get()!="" and bukva.get()!="" and c.get()!=""):
-        primer_=float(primer.get())
-        bukva_=float(bukva.get())
-        c_=float(c.get())
-        D=bukva_*bukva_-4*primer_*c_
+    if (a.get()!="" and b.get()!="" and c.get()!=""):
+        a_=float(a.get())
+        b_=float(a.get())
+        c_=float(a.get())
+        D=b_*b_-4*a_*c_
         if D>0:
-            x1_=round((-1*bukva_+sqrt(D))/(2*primer_),2)
-            x2_=round((-1*bukva_-sqrt(D))/(2*primer_),2)
+            x1_=round((-1*b_+sqrt(D))/(2*a_),2)
+            x2_=round((-1*b_-sqrt(D))*(2*a_),2)
             t=f"X1={x1_}, \nX2={x2_}"
-            flag=True
+            graf=True
         elif D==0:
-            x1_=round((-1*bukva_)/(2*primer_),2)
+            x1_round((-1*b_)/(2*a_),2)
             t=f"X1={x1_}"
             graf=True
         else:
-            t="корней нет"
+            t="Нет корней"
             graf=False
-        vastus.configure(text=f"D={D}\n{t}")
-        primer.configure(bg="lightblue")
-        bukva.configure(bg="lightblue")
+        otvetik.configure(text=f"D={D}\n{t}")
+        a.configure(bg="lightblue")
+        b.configure(bg="lightblue")
         c.configure(bg="lightblue")
     else:
-        if primer.get()=="":
-            primer.configure(bg="red")
-        if bukva.get()=="":
-            bukva.configure(bg="red")
+        if a.get()=="":
+            a.configure(bg="red")
+        if b.get()=="":
+            b.configure(bg="red")
         if c.get()=="":
             c.configure(bg="red")
-    return flag,D,t
-
-
-
+    return graf,D,t
 
 aken=Tk()
-aken.title("Akna nimetus")
-aken.geometry("800x200")
-nupp=Button(aken,text="решить!",font="Arial 20",fg="red",bg="lightblue",height=2,width=30,relief=GROOVE)
-knopka=Button(aken,text="Решения квадратного уравнения!",font="Arial 20",fg="green",bg="lightgreen",height=2,width=30,relief=GROOVE)
-lbl=Label(aken,text="...",height=4,width=20,font="Arial 20",fg="green",bg="lightyellow",relief=GROOVE)
-primer=Label(aken,text="x**2+",font="Arial 20", fg="green", padx=8)
-bukva=Entry(aken,font="Arial 20", fg="green",bg="lightblue",width=6)
-
-znak=Label(aken,text="x+",font="Arial 20", fg="green")
-c=Entry(aken,font="Arial 20", fg="green",bg="lightblue",width=6)
-txt=Entry(aken,font="Arial 20", fg="green",bg="lightblue",width=6)
-kn=Label(aken,text="=0",font="Arial 20", fg="green")
-
-
+aken.title("Решение квадратного уравнения")
+aken.geometry("800x300")
+reshen=Label(aken,text="Решение квадратного уравнения",font="Arial 20", fg="green",bg="lightblue")
+otvetik=Label(aken,text="ответик", height=4,width=60,bg="purple")
+a=Entry(aken,font="Arial 20", fg="green",bg="lightblue",width=3)
+x2=Label(aken,text="x**2+",font="Alial 20", fg="green", padx=10)
+b=Entry(aken,font="Arial 20", fg="green",bg="lightblue",width=3)
+x=Label(aken,text="x+",font="Arial 20", fg="green")
+c=Entry(aken,font="Arial 20", fg="green",bg="lightblue",width=3)
+ghj=Label(aken,text="=0",font="Arial 20", fg="green")
+bnt=Button(aken,text="Решить",font="Arial 20",bg="green",command=lahenda)
+bnt.pack(side=LEFT)
 
 
 
-txt.pack(side=LEFT)
-primer.pack(side=LEFT)
-bukva.pack(side=LEFT)
-znak.pack(side=LEFT)
+
+reshen.pack()
+otvetik.pack(side=BOTTOM)
+a.pack(side=LEFT)
+x2.pack(side=LEFT)
+b.pack(side=LEFT)
+x.pack(side=LEFT)
 c.pack(side=LEFT)
-kn.pack(side=LEFT)
-knopka.pack(side=TOP)
-lbl.pack(side=BOTTOM)
-nupp.pack(side=RIGHT)
+ghj.pack(side=LEFT)
+bnt.pack(side=RIGHT)
+
+
+
+
 aken.mainloop()
